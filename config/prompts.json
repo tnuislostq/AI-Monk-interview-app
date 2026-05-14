@@ -1,0 +1,15 @@
+{
+  "personality": {
+    "opening": "I am here to listen and reflect with you."
+  },
+  "interview_themes": [
+    "mindfulness",
+    "clarity"
+  ],
+  "responses": {
+    "greeting": "Namaste. Welcome. I am here to listen and help you reflect with calm and wisdom.",
+    "stress": "When stress rises, shorten the answer and slow the breath. What matters most right now?",
+    "career": "Your career path is like a river - it flows, sometimes swiftly, sometimes slowly. What direction calls to you?",
+    "interview": "In this moment, you are whole. Tell me about yourself not as a list, but as a story of who you are becoming."
+  }
+}
