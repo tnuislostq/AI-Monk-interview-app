@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ app_name }}</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+        <aside class="sidebar">
+
+        </aside>
+              <div class="brand">
+        <div class="logo" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3c3 2.2 5 4.8 5 8.1A5 5 0 0 1 12 16a5 5 0 0 1-5-4.9C7 7.8 9 5.2 12 3Z"></path>
+            <path d="M12 16v5"></path>
+            <path d="M9 21h6"></path>
+          </svg>
+                  <div>
+          <h1>AI Monk</h1>
+          <p>Interview calm, clarity, and practice.</p>
+        </div>
+      </div>
+            <section class="helper-card">
+        <h2>How it guides</h2>
+        <ul class="helper-list">
+          <li>Practice introductions and behavioral answers.</li>
+          <li>Turn anxious thoughts into grounded responses.</li>
+          <li>Keep answers short, sincere, and structured.</li>
+        </ul>
+      </section>
+            <section class="helper-card">
+        <h2>Best prompts</h2>
+        <ul class="helper-list">
+          <li>"Help me answer tell me about yourself."</li>
+          <li>"I feel nervous before interviews."</li>
+          <li>"Improve my weakness answer."</li>
+        </ul>
+      </section>
+          <main class="main-panel"></main>
+                <header class="topbar">
+        <div>
+          <p>Session <span id="sessionLabel"></span></p>
+          <h2>Monk interview room</h2>
+        </div>
+                <div class="actions">
+          <button class="btn" id="themeButton" type="button">Light mode</button>
+          <button class="btn" id="resetButton" type="button">Reset chat</button>
+        </div>
+      </header>
+            <section class="chat-wrap" id="chatContainer" aria-live="polite"></section>
+                  <section class="composer">
+        <form id="chatForm">
+                      <label class="sr-only" for="messageInput">Type your message</label>
+                                <textarea id="messageInput" placeholder="Ask a question about interview stress, self-introduction, strengths, weaknesses, or career goals."></textarea>
+                                          <button class="btn btn-primary" type="submit">Send reflection</button>
+        </form>
+                <div class="status-row">
+          <span id="statusText">Ready.</span>
+          <span>Speak simply. Breathe once. Answer clearly.</span>
+        </div>
+      </section>
+        <script src="{{ url_for('static', filename='js/chat.js') }}" defer></script>
+</body>
+</html>
