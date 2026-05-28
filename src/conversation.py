@@ -1,5 +1,5 @@
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict
 
@@ -25,7 +25,7 @@ class ConversationManager:
         history.append({
             'role': role,
             'content': content,
-            'timestamp': datetime.utcnow().isoformat() + 'Z'
+            'timestamp': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
         })
         with open(self._file_path(session_id), 'w', encoding='utf-8') as file:
             json.dump(history, file, indent=2, ensure_ascii=False)
