@@ -1,4 +1,8 @@
 import json
+import os
+
+CONVERSATIONS_DIR = os.path.join("data", "conversations")
+os.makedirs(CONVERSATIONS_DIR, exist_ok=True)
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import List, Dict
