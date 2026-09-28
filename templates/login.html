@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ app_name }}</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-body">
+  <div class="auth-shell">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3c3 2.2 5 4.8 5 8.1A5 5 0 0 1 12 16a5 5 0 0 1-5-4.9C7 7.8 9 5.2 12 3Z"></path>
+          <path d="M12 16v5"></path>
+          <path d="M9 21h6"></path>
+        </svg>
+      </div>
+      <h1>AI Monk</h1>
+      <p class="auth-sub">Interview calm, clarity, and practice.</p>
+
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" id="tabSignIn">Sign In</button>
+        <button type="button" class="auth-tab" id="tabSignUp">Create Account</button>
+      </div>
+
+      <form id="signInForm" class="auth-form">
+        <label class="field-label" for="siEmail">Email</label>
+        <input type="email" id="siEmail" class="field-input" placeholder="you@example.com" required>
+        <label class="field-label" for="siPassword">Password</label>
+        <input type="password" id="siPassword" class="field-input" placeholder="Your password" required>
+        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+      </form>
+
+      <form id="signUpForm" class="auth-form" style="display:none;">
+        <label class="field-label" for="suName">Name</label>
+        <input type="text" id="suName" class="field-input" placeholder="Your name" required>
+        <label class="field-label" for="suEmail">Email</label>
+        <input type="email" id="suEmail" class="field-input" placeholder="you@example.com" required>
+        <label class="field-label" for="suPassword">Password</label>
+        <input type="password" id="suPassword" class="field-input" placeholder="At least 6 characters" required>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+
+      <p class="auth-error" id="authError"></p>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/auth.js') }}" defer></script>
+</body>
+</html>
