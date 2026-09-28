@@ -147,8 +147,8 @@ def chat():
     if not convo:
         return jsonify({'error': 'Conversation not found.'}), 404
 
-    user_store.add_message(conversation_id, 'user', user_message)
     history = user_store.get_messages(conversation_id)
+    user_store.add_message(conversation_id, 'user', user_message)
     monk_reply = monk_ai.generate_reply(user_message, history)
     timestamp = user_store.add_message(conversation_id, 'monk', monk_reply)
 
