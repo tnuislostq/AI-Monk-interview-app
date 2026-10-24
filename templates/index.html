@@ -17,39 +17,37 @@
             <path d="M12 16v5"></path>
             <path d="M9 21h6"></path>
           </svg>
-          <div>
-            <h1>AI Monk</h1>
-            <p>Interview calm, clarity, and practice.</p>
-          </div>
+        </div>
+        <div>
+          <h1>AI Monk</h1>
+          <p>Interview calm, clarity, and practice.</p>
         </div>
       </div>
-      <section class="helper-card">
-        <h2>How it guides</h2>
-        <ul class="helper-list">
-          <li>Practice introductions and behavioral answers.</li>
-          <li>Turn anxious thoughts into grounded responses.</li>
-          <li>Keep answers short, sincere, and structured.</li>
-        </ul>
-      </section>
-      <section class="helper-card">
-        <h2>Best prompts</h2>
-        <ul class="helper-list">
-          <li>"Help me answer tell me about yourself."</li>
-          <li>"I feel nervous before interviews."</li>
-          <li>"Improve my weakness answer."</li>
-        </ul>
-      </section>
+
+      <button class="btn btn-primary btn-block" id="newChatButton" type="button">+ New Conversation</button>
+
+      <div class="history-list" id="historyList" aria-live="polite">
+        <p class="history-empty" id="historyEmpty">No conversations yet.</p>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="user-chip">
+          <span class="user-avatar">{{ user_name[0]|upper if user_name else "M" }}</span>
+          <span class="user-name">{{ user_name }}</span>
+        </div>
+        <button class="btn" id="themeButton" type="button">Light mode</button>
+        <button class="btn" id="logoutButton" type="button">Log out</button>
+      </div>
     </aside>
 
     <main class="main-panel">
       <header class="topbar">
         <div>
-          <p>Session <span id="sessionLabel"></span></p>
-          <h2>Monk interview room</h2>
+          <p id="conversationLabel">Conversation</p>
+          <h2 id="conversationTitle">Monk interview room</h2>
         </div>
         <div class="actions">
-          <button class="btn" id="themeButton" type="button">Light mode</button>
-          <button class="btn" id="resetButton" type="button">Reset chat</button>
+          <button class="btn" id="resetButton" type="button">Clear this chat</button>
         </div>
       </header>
 

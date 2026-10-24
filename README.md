@@ -1,289 +1,148 @@
-# ZenMonk® — Mindful AI Interview Mentor & Sanctuary
+# 🧘 ZenMonk® (AI Monk) — Mindful Interview Preparation & Simulation Engine
 
-A beautifully redesigned, immersive 3D landing page and interactive mock interview experience powered by React, TypeScript, Vite, Tailwind CSS, and Python/Flask.
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://ai-monk-interview-app.onrender.com/)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.0-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-GPT--3.5--Turbo-412991?style=for-the-badge&logo=openai&logoColor=white)](https://openai.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-![ZenMonk Experience](/public/zen-monk.jpg)
+Live demo: [https://ai-monk-interview-app.onrender.com/](https://ai-monk-interview-app.onrender.com/)
 
-## ✨ Redesigned UI/UX Highlights
+---
 
-- **Mouse-Scrub Video Canvas**: Full-screen cinematic video controlled dynamically by horizontal mouse position (`(delta / innerWidth) * 0.8 * duration`) with seek-flooding protection (`onSeeked` queue).
-- **Aesthetic Typography & Nav**: Custom heading typeface with trademark `ZenMonk®` / `Mainframe®` branding, decorative `✳︎` asterisk, responsive desktop navigation, and 3-bar animated mobile hamburger drawer.
-- **Hero Section**:
-  - Blurred intro label with dual-line zen motto (`clamp(18px, 4vw, 26px)`, `blur(4px)`).
-  - Custom `useTypewriter` hook revealing questions with rhythmic ease (38ms character speed, 600ms start delay).
-  - Independent 400ms delayed action pill buttons (fade-in & slide-up) with 1-click clipboard copy.
-- **3D Zen Sanctuary Modal & Suite**:
-  - **3D Tilt Monk Card**: Interactive tilt perspective displaying the serene meditating monk.
-  - **Live Mock Room**: Real-time dialogue with Master Zen Bodhi (backed by Flask API or instant client-side wisdom).
-  - **4-7-8 Breathing Pacer**: Animated pranayama circle for calming pre-interview jitters.
-  - **STAR Method & Behavioral Drills**: Modern career answers framed with zen composure.
-  - **Harmonic Singing Bowl Chime**: 432Hz synthesized Tibetan singing bowl via Web Audio API.
+## 🌟 Overview
 
-## 🚀 Quickstart
+**ZenMonk® (AI Monk)** is a production-grade interview preparation and simulation platform that marries high-stakes behavioral and technical interview coaching with grounding mindfulness practices. 
 
-### Frontend (React + Vite + Tailwind)
+Featuring a modern React + TypeScript + Vite frontend with glassmorphism aesthetics, candidate session history persistence, multi-industry question discovery (Technology, Healthcare, Finance, Design, Leadership, Sales), real-time answer diagnostic scoring, and an intelligent Python/Flask backend.
+
+---
+
+## ✨ Features & Architecture Highlights
+
+### 1. Modern Glassmorphism Experience
+- **Glassmorphic Navigation (`ZenNavbar.tsx`)**: High-end frosted glass bar (`backdrop-blur-2xl`, subtle borders), tab favicon branding, quick anchor navigation, dark/light theme switcher, and Candidate Account portal.
+- **Mouse-Scrubbed Cinematic Video**: Full-screen atmospheric background video responding smoothly to horizontal cursor physics (`(delta / innerWidth) * 0.8 * duration`) with `onSeeked` queue throttling.
+- **Hero & Discovery**: Clean typography, value proposition presentation, and multi-field career questionnaire that tailors interview scenarios.
+
+### 2. Live Interview Studio & Simulation Room
+- **Multi-Industry Question Bank**: Dedicated drills across Software Engineering, Clinical Healthcare, Quantitative Finance, Product & Design, Executive Leadership, and Sales.
+- **Real-Time Simulation Feed**: Visual temple sanctum interview environment featuring Master Zen Bodhi.
+- **Instant Diagnostic Engine**:
+  - Word count & pacing checks.
+  - Ownership & agency detection (identifies passive "we" vs. active "I led/decided").
+  - Quantifiable metrics analysis (validates percentages, currency, and timeline gains).
+  - Four-part feedback breakdown: Score, What Went Wrong, What Was Strong, and Master Bodhi's Model Polish.
+
+### 3. Candidate Profile & Session Persistence
+- **Client & Backend Authentication**: Seamless sign-in supporting candidate target field, target role, and past interview transcripts.
+- **Transcript History**: View, re-inspect, and manage past simulated interview rounds directly from the account modal.
+
+### 4. Grounding & Mindfulness
+- **4-7-8 Breathing Pacer**: Calibrates parasympathetic response before entering high-stakes questions.
+- **Quiet Mindfulness**: Thoughtfully engineered without disruptive audio cues, honoring candidate focus and tranquility.
+
+---
+
+## 🧪 Comprehensive Automated Test Suite
+
+ZenMonk features full-spectrum test coverage spanning Unit, Integration, and End-to-End candidate flows:
+
 ```bash
-# Install dependencies
+# Frontend Test Suite (Vitest)
+npm run test
+
+# ✓ src-client/__tests__/unit.test.ts (Timer formatting, diagnostic evaluation algorithms)
+# ✓ src-client/__tests__/integration.test.ts (Profile persistence, session storage, theme toggle)
+# ✓ src-client/__tests__/e2e.test.ts (Full candidate lifecycle: onboarding -> answer -> scoring -> history)
+# Test Files  3 passed (3)
+# Tests       7 passed (7)
+```
+
+```bash
+# Backend Test Suite (Pytest)
+python -m pytest tests/
+
+# tests/test_conversation.py ..
+# tests/test_monk_ai.py .
+# 3 passed in 1.86s
+```
+
+---
+
+## 🚀 Quickstart & Development
+
+### 1. Install & Run Frontend (React + Vite)
+```bash
+# Install frontend dependencies
 npm install
 
 # Start Vite dev server with instant HMR (http://localhost:5173)
 npm run dev
 
-# Build production bundle
+# Build production bundle for deployment (outputs to dist/)
 npm run build
 ```
 
-### Full-Stack Python Backend (Flask)
+### 2. Run Full-Stack Flask Server
 ```bash
-# Set up Python virtual environment & install requirements
+# Create virtual environment & install requirements
+python -m venv venv
+venv\Scripts\activate   # Windows (PowerShell)
+# source venv/bin/activate # macOS / Linux
+
 pip install -r requirements.txt
 
-# Run Flask server (serves the Vite build & /api/chat endpoints on http://localhost:5000)
+# Run Flask backend server (serves the SPA & API endpoints on http://localhost:5000)
 python src/app.py
 ```
 
-
-## ✨ Features
-
-- **Philosophical Conversations** - Engage in deep discussions on life, meaning, and wisdom
-- **Adaptive Responses** - AI learns context from previous messages for coherent dialogue
-- **Multiple Wisdom Traditions** - Draws from Buddhist, Stoic, Zen, and other philosophical schools
-- **Conversation History** - Save and revisit previous philosophical exchanges
-- **Reflective Questions** - Monk poses thought-provoking questions to guide introspection
-- **User-Friendly Interface** - Clean, intuitive chat interface
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Python 3.8+
-- OpenAI API key (or alternative LLM provider)
-- pip (Python package manager)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/tnuislostq/AI-Monk-interview-app.git
-   cd AI-Monk-interview-app
-   ```
-
-2. **Create virtual environment**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env and add your API keys
-   ```
-
-5. **Run the application**
-   ```bash
-   python src/app.py
-   ```
-
-6. **Access the interface**
-   - Open your browser and navigate to `http://localhost:5000`
-
-## 🏗️ Project Structure
-
+### 3. Environment Variables
+Create a `.env` file at the root (strictly ignored in git for security):
+```env
+OPENAI_API_KEY=your-api-key-here
+FLASK_ENV=production
+SECRET_KEY=your-secure-random-secret
+DATABASE_PATH=data/zenmonk.db
 ```
-AI-Monk-interview-app/
-├── src/
-│   ├── app.py                 # Main Flask application
-│   ├── monk_ai.py             # AI model integration
-│   ├── conversation.py        # Conversation management
-│   └── utils.py               # Utility functions
-├── config/
-│   ├── prompts.json           # Monk personality & prompts
-│   └── settings.py            # Configuration settings
-├── static/
-│   ├── css/
-│   │   └── style.css          # UI styling
-│   └── js/
-│       └── chat.js            # Frontend logic
-├── templates/
-│   └── index.html             # Main HTML template
-├── data/
-│   └── conversations/         # Stored conversations
-├── tests/
-│   ├── test_monk_ai.py
-│   └── test_conversation.py
-├── requirements.txt           # Python dependencies
-├── .env.example               # Environment variables template
-├── .gitignore                 # Git ignore rules
-└── README.md                  # This file
-```
-
-## 🔧 Technology Stack
-
-- **Backend**: Flask (Python)
-- **AI/LLM**: OpenAI GPT / Alternative LLM providers
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Database**: SQLite (default, upgradable to PostgreSQL)
-- **Environment Management**: python-dotenv
-
-## 💬 Usage
-
-### Starting a Conversation
-
-1. Open the application in your browser
-2. Type your philosophical question or topic
-3. The monk will respond with thoughtful insights
-4. Continue the dialogue to explore deeper
-
-### Example Topics
-
-- Meaning and purpose of life
-- How to handle adversity
-- The nature of happiness
-- Decision-making and choices
-- Understanding oneself
-- Building meaningful relationships
-
-## ⚙️ Configuration
-
-### Customizing the Monk
-
-Edit `config/prompts.json` to modify:
-- Monk's personality traits
-- Philosophy style (Zen, Stoic, Buddhist, etc.)
-- Response tone and formality
-- Special instructions and constraints
-
-```json
-{
-  "system_prompt": "You are a wise monk...",
-  "temperature": 0.7,
-  "max_tokens": 500
-}
-```
-
-### Environment Variables
-
-Create a `.env` file with:
-```
-OPENAI_API_KEY=your_api_key_here
-FLASK_ENV=development
-DATABASE_URL=sqlite:///conversations.db
-```
-
-## 📚 API Reference
-
-### Chat Endpoint
-
-**POST** `/api/chat`
-
-Request:
-```json
-{
-  "message": "What is the meaning of life?",
-  "session_id": "user_session_123"
-}
-```
-
-Response:
-```json
-{
-  "response": "The monk's thoughtful response...",
-  "session_id": "user_session_123"
-}
-```
-
-## 🧪 Testing
-
-Run the test suite:
-
-```bash
-pytest tests/
-```
-
-Or with coverage:
-
-```bash
-pytest --cov=src tests/
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Areas for Contribution
-
-- Enhancing AI responses
-- Adding new philosophical frameworks
-- Improving UI/UX
-- Adding multilingual support
-- Performance optimization
-- Writing tests
-
-## 🐛 Troubleshooting
-
-### Issue: API Key Error
-- Verify your `.env` file is in the root directory
-- Check that your API key is valid and has proper permissions
-
-### Issue: Port Already in Use
-```bash
-# Change the port in app.py or use environment variable
-python src/app.py --port 5001
-```
-
-### Issue: Dependencies Not Installing
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt --force-reinstall
-```
-
-## 📋 Roadmap
-
-- [ ] User authentication and profiles
-- [ ] Conversation analytics dashboard
-- [ ] Multiple monk personas to choose from
-- [ ] Voice input/output support
-- [ ] Meditation and guided reflection features
-- [ ] Community features and sharing
-- [ ] Mobile app (React Native)
-- [ ] Multilingual support
-- [ ] Export conversations to PDF
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👤 Author
-
-**tnuislostq**
-
-- GitHub: [@tnuislostq](https://github.com/tnuislostq)
-
-## 🙏 Acknowledgments
-
-- Inspired by philosophical traditions and contemplative practices
-- Built with OpenAI's GPT models
-- Thanks to the open-source community
-
-## 📞 Support
-
-For issues, questions, or suggestions:
-- Open an [Issue](https://github.com/tnuislostq/AI-Monk-interview-app/issues)
-- Check existing [Discussions](https://github.com/tnuislostq/AI-Monk-interview-app/discussions)
-- Contact via GitHub
 
 ---
 
-**Start your philosophical journey today. Ask the monk a question.** 🧘‍♂️
+## 📁 Repository Structure
+
+```
+AI-Monk-interview-app/
+├── dist/                      # Pre-built production SPA ready for Render deployment
+├── public/                    # Favicon svg and temple interviewer visual assets
+├── src-client/                # Modern React 18 + TypeScript + Tailwind source
+│   ├── components/            # ZenNavbar, ZenHero, InterviewStudio, AuthModal, etc.
+│   ├── context/               # AuthContext (persistence) and ThemeContext
+│   └── __tests__/             # Unit, Integration, and End-to-End Vitest suites
+├── src/                       # Flask application & AI orchestration
+│   ├── app.py                 # Primary entrypoint serving SPA & Auth/Chat APIs
+│   ├── auth.py                # SQLite UserStore and authentication hashing
+│   ├── monk_ai.py             # LLM orchestration and prompt handling
+│   └── conversation.py        # Conversation state manager
+├── config/                    # Settings and prompt configurations
+├── tests/                     # Pytest backend test suite
+├── Procfile                   # Render WSGI deployment command (gunicorn src.app:app)
+└── requirements.txt           # Python dependencies
+```
+
+---
+
+## 🚢 Deployment (Render)
+
+This repository is optimized for one-click deployment on [Render](https://render.com/):
+1. **Build Command**: `pip install -r requirements.txt`
+2. **Start Command**: `gunicorn -w 4 "src.app:app"`
+3. Flask automatically serves the pre-compiled `dist/` production assets, ensuring instantaneous loading without requiring a Node runtime on the production Python container.
+
+---
+
+## 📄 License
+MIT License. Created with focus and clarity.

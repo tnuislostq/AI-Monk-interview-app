@@ -15,8 +15,9 @@ class MonkAI:
         self.prompts = self._load_prompts()
         self.api_key = os.getenv('OPENAI_API_KEY')
 
+        self.client = None
         if self.api_key and openai:
-            openai.api_key = self.api_key
+            self.client = openai.OpenAI(api_key=self.api_key)
 
     def _load_prompts(self) -> Dict:
         with open(self.prompts_path, 'r', encoding='utf-8') as file:
@@ -50,7 +51,7 @@ class MonkAI:
         )
 
     def generate_reply(self, user_message: str, history: List[Dict]) -> str:
-        if self.api_key and openai:
+        if self.client:
             try:
                 system_prompt = self.prompts.get('system_prompt') or self.prompts.get('personality', {}).get('opening', '')
                 messages = []
@@ -64,7 +65,7 @@ class MonkAI:
 
                 messages.append({'role': 'user', 'content': user_message})
 
-                response = openai.ChatCompletion.create(
+                response = self.client.chat.completions.create(
                     model=self.prompts.get('model', 'gpt-3.5-turbo'),
                     messages=messages,
                     temperature=float(self.prompts.get('temperature', 0.7)),
