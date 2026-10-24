@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Cabinet Grotesk', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Satoshi', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body.theme-light {
+    background-color: #fbfaf6;
+    color: #111827;
+  }
+
+  body.theme-dark {
+    background-color: #0c0f14;
+    color: #f3f4f6;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.5);
+}
+
+/* Animations */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+@keyframes pulseHalo {
+  0%, 100% {
+    box-shadow: 0 0 25px 4px rgba(245, 158, 11, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 45px 12px rgba(245, 158, 11, 0.45);
+  }
+}
+
+.animate-halo {
+  animation: pulseHalo 3.5s ease-in-out infinite;
+}
+
+@keyframes waveBar {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 24px;
+  }
+}
+
+.animate-wave-1 {
+  animation: waveBar 1.2s ease-in-out infinite;
+}
+.animate-wave-2 {
+  animation: waveBar 1.2s ease-in-out 0.2s infinite;
+}
+.animate-wave-3 {
+  animation: waveBar 1.2s ease-in-out 0.4s infinite;
+}
+.animate-wave-4 {
+  animation: waveBar 1.2s ease-in-out 0.1s infinite;
+}
+.animate-wave-5 {
+  animation: waveBar 1.2s ease-in-out 0.3s infinite;
+}
+
+@keyframes leafDrift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(-100vw, 55vh, 0) rotate(380deg);
+    opacity: 0;
+  }
+}
+
+.animate-leaf {
+  animation: leafDrift 14s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 from pathlib import Path
 import sys
 
@@ -11,10 +11,12 @@ from src.conversation import ConversationManager
 from src.monk_ai import MonkAI
 from config.settings import Settings
 
+DIST_FOLDER = ROOT / 'dist'
+
 app = Flask(
     __name__,
-    template_folder=str(ROOT / 'templates'),
-    static_folder=str(ROOT / 'static')
+    template_folder=str(DIST_FOLDER if DIST_FOLDER.exists() else (ROOT / 'templates')),
+    static_folder=str(DIST_FOLDER if DIST_FOLDER.exists() else (ROOT / 'static'))
 )
 app.config.from_object(Settings)
 
@@ -22,9 +24,15 @@ conversation_manager = ConversationManager(ROOT / 'data' / 'conversations')
 monk_ai = MonkAI(ROOT / 'config' / 'prompts.json')
 
 
-@app.route('/')
-def index():
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and (DIST_FOLDER / path).exists():
+        return send_from_directory(str(DIST_FOLDER), path)
+    if (DIST_FOLDER / 'index.html').exists():
+        return send_from_directory(str(DIST_FOLDER), 'index.html')
     return render_template('index.html', app_name=Settings.APP_NAME)
+
 
 
 @app.post('/api/chat')

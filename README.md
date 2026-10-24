@@ -1,10 +1,47 @@
-# AI-Monk Interview App
+# ZenMonk® — Mindful AI Interview Mentor & Sanctuary
 
-An interactive philosophical conversation experience with a wise AI-powered monk. Engage in deep, thought-provoking dialogues to explore life's biggest questions and gain wisdom.
+A beautifully redesigned, immersive 3D landing page and interactive mock interview experience powered by React, TypeScript, Vite, Tailwind CSS, and Python/Flask.
 
-## 📖 Overview
+![ZenMonk Experience](/public/zen-monk.jpg)
 
-This application creates an immersive environment where users can have meaningful philosophical conversations with an AI monk. The monk provides thoughtful guidance, asks probing questions, and shares wisdom from various philosophical traditions.
+## ✨ Redesigned UI/UX Highlights
+
+- **Mouse-Scrub Video Canvas**: Full-screen cinematic video controlled dynamically by horizontal mouse position (`(delta / innerWidth) * 0.8 * duration`) with seek-flooding protection (`onSeeked` queue).
+- **Aesthetic Typography & Nav**: Custom heading typeface with trademark `ZenMonk®` / `Mainframe®` branding, decorative `✳︎` asterisk, responsive desktop navigation, and 3-bar animated mobile hamburger drawer.
+- **Hero Section**:
+  - Blurred intro label with dual-line zen motto (`clamp(18px, 4vw, 26px)`, `blur(4px)`).
+  - Custom `useTypewriter` hook revealing questions with rhythmic ease (38ms character speed, 600ms start delay).
+  - Independent 400ms delayed action pill buttons (fade-in & slide-up) with 1-click clipboard copy.
+- **3D Zen Sanctuary Modal & Suite**:
+  - **3D Tilt Monk Card**: Interactive tilt perspective displaying the serene meditating monk.
+  - **Live Mock Room**: Real-time dialogue with Master Zen Bodhi (backed by Flask API or instant client-side wisdom).
+  - **4-7-8 Breathing Pacer**: Animated pranayama circle for calming pre-interview jitters.
+  - **STAR Method & Behavioral Drills**: Modern career answers framed with zen composure.
+  - **Harmonic Singing Bowl Chime**: 432Hz synthesized Tibetan singing bowl via Web Audio API.
+
+## 🚀 Quickstart
+
+### Frontend (React + Vite + Tailwind)
+```bash
+# Install dependencies
+npm install
+
+# Start Vite dev server with instant HMR (http://localhost:5173)
+npm run dev
+
+# Build production bundle
+npm run build
+```
+
+### Full-Stack Python Backend (Flask)
+```bash
+# Set up Python virtual environment & install requirements
+pip install -r requirements.txt
+
+# Run Flask server (serves the Vite build & /api/chat endpoints on http://localhost:5000)
+python src/app.py
+```
+
 
 ## ✨ Features
 
